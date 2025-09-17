@@ -1,0 +1,181 @@
+import { CategorySection } from '@/types';
+
+export const mockRestaurantData: CategorySection[] = [
+  {
+    id: 'appetizers',
+    title: 'Appetizers',
+    data: [
+      {
+        id: 'app1',
+        name: 'Truffle Arancini',
+        description: 'Crispy risotto balls stuffed with truffle cheese, served with marinara sauce',
+        price: 14.99,
+        image: 'https://images.pexels.com/photos/4110008/pexels-photo-4110008.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'app2',
+        name: 'Burrata & Prosciutto',
+        description: 'Fresh burrata cheese with prosciutto di parma, cherry tomatoes, and basil',
+        price: 18.99,
+        image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'app3',
+        name: 'Calamari Fritti',
+        description: 'Golden fried squid rings with spicy marinara and lemon aioli',
+        price: 12.99,
+        image: 'https://images.pexels.com/photos/6086711/pexels-photo-6086711.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'app4',
+        name: 'Bruschetta Trio',
+        description: 'Three varieties: classic tomato, mushroom truffle, and goat cheese',
+        price: 11.99,
+        image: 'https://images.pexels.com/photos/5737241/pexels-photo-5737241.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+    ],
+  },
+  {
+    id: 'mains',
+    title: 'Main Courses',
+    data: [
+      {
+        id: 'main1',
+        name: 'Ribeye Steak',
+        description: '12oz prime ribeye with garlic mashed potatoes and seasonal vegetables',
+        price: 34.99,
+        image: 'https://images.pexels.com/photos/4253302/pexels-photo-4253302.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'main2',
+        name: 'Lobster Risotto',
+        description: 'Creamy arborio rice with fresh lobster, white wine, and microgreens',
+        price: 28.99,
+        image: 'https://images.pexels.com/photos/4872178/pexels-photo-4872178.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'main3',
+        name: 'Pan-Seared Salmon',
+        description: 'Atlantic salmon with lemon herb butter, quinoa pilaf, and asparagus',
+        price: 26.99,
+        image: 'https://images.pexels.com/photos/1516415/pexels-photo-1516415.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'main4',
+        name: 'Osso Buco',
+        description: 'Braised veal shank with saffron risotto and gremolata',
+        price: 32.99,
+        image: 'https://images.pexels.com/photos/4253301/pexels-photo-4253301.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'main5',
+        name: 'Duck Confit',
+        description: 'Traditional French duck leg with roasted root vegetables',
+        price: 29.99,
+        image: 'https://images.pexels.com/photos/4253302/pexels-photo-4253302.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+    ],
+  },
+  {
+    id: 'pasta',
+    title: 'Pasta & Risotto',
+    data: [
+      {
+        id: 'pasta1',
+        name: 'Cacio e Pepe',
+        description: 'Classic Roman pasta with pecorino romano and black pepper',
+        price: 19.99,
+        image: 'https://images.pexels.com/photos/4518843/pexels-photo-4518843.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'pasta2',
+        name: 'Lobster Ravioli',
+        description: 'Handmade ravioli filled with lobster in pink vodka sauce',
+        price: 24.99,
+        image: 'https://images.pexels.com/photos/4518659/pexels-photo-4518659.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'pasta3',
+        name: 'Truffle Carbonara',
+        description: 'Spaghetti with pancetta, egg yolk, parmesan, and truffle oil',
+        price: 22.99,
+        image: 'https://images.pexels.com/photos/4518845/pexels-photo-4518845.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'pasta4',
+        name: 'Mushroom Risotto',
+        description: 'Creamy arborio rice with mixed wild mushrooms and parmesan',
+        price: 20.99,
+        image: 'https://images.pexels.com/photos/4872179/pexels-photo-4872179.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+    ],
+  },
+  {
+    id: 'desserts',
+    title: 'Desserts',
+    data: [
+      {
+        id: 'dessert1',
+        name: 'Tiramisu',
+        description: 'Classic Italian dessert with ladyfingers, mascarpone, and espresso',
+        price: 8.99,
+        image: 'https://images.pexels.com/photos/4871174/pexels-photo-4871174.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'dessert2',
+        name: 'Chocolate Lava Cake',
+        description: 'Warm chocolate cake with molten center, served with vanilla gelato',
+        price: 9.99,
+        image: 'https://images.pexels.com/photos/4110004/pexels-photo-4110004.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'dessert3',
+        name: 'Panna Cotta',
+        description: 'Vanilla bean panna cotta with fresh berry compote',
+        price: 7.99,
+        image: 'https://images.pexels.com/photos/4110005/pexels-photo-4110005.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'dessert4',
+        name: 'Gelato Trio',
+        description: 'Three scoops of artisanal gelato: pistachio, stracciatella, and amaretto',
+        price: 6.99,
+        image: 'https://images.pexels.com/photos/4110006/pexels-photo-4110006.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+    ],
+  },
+  {
+    id: 'beverages',
+    title: 'Beverages',
+    data: [
+      {
+        id: 'bev1',
+        name: 'Craft Beer Selection',
+        description: 'Ask your server about our rotating selection of local craft beers',
+        price: 6.99,
+        image: 'https://images.pexels.com/photos/1552630/pexels-photo-1552630.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'bev2',
+        name: 'House Wine',
+        description: 'Red or white wine by the glass from our curated selection',
+        price: 8.99,
+        image: 'https://images.pexels.com/photos/1407846/pexels-photo-1407846.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'bev3',
+        name: 'Fresh Lemonade',
+        description: 'House-made lemonade with fresh mint and seasonal fruit',
+        price: 4.99,
+        image: 'https://images.pexels.com/photos/96974/pexels-photo-96974.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+      {
+        id: 'bev4',
+        name: 'Espresso',
+        description: 'Double shot of our signature Italian espresso blend',
+        price: 3.99,
+        image: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=400',
+      },
+    ],
+  },
+];
