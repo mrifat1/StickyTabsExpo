@@ -10,7 +10,7 @@ export default function HomeScreen() {
   const handleItemPress = (item: CategoryItem) => {
     Alert.alert(
       'Item Selected',
-      `${item.name}\n\nPrice: $${item.price.toFixed(2)}\n\n${item.description || 'No description available'}`,
+      `${item.name}\n\nPrice: BDT${item.price.toFixed(2)}\n\n${item.description || 'No description available'}`,
       [
         { text: 'Cancel', style: 'cancel' },
         { text: 'Add to Cart', style: 'default' },
