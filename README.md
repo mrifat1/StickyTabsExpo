@@ -18,6 +18,18 @@ A modern restaurant menu app built with Expo, React Native, and TypeScript. This
 - Set up Expo Router for navigation and theming.
 - Ensured cross-platform compatibility and responsive design.
 
+## Requirements
+
+- **Node.js:** v18.x or newer is recommended
+- **npm:** v9.x or newer, or use `yarn` if preferred
+- **Expo CLI:** Install globally with `npm install -g expo-cli`
+- **Supported Platforms:** iOS, Android, and Web
+
+Ensure you have the correct Node.js version installed. You can check your version with:
+
+````sh
+node -v
+
 ## Installation
 
 1. **Clone the repository:**
@@ -25,7 +37,7 @@ A modern restaurant menu app built with Expo, React Native, and TypeScript. This
    ```sh
    git clone <your-repo-url>
    cd StickyTabExpo
-   ```
+````
 
 2. Install dependencies
 
