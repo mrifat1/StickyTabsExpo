@@ -22,7 +22,7 @@ A modern restaurant menu app built with Expo, React Native, and TypeScript. This
 
 - **Node.js:** v18.x or newer is recommended
 - **npm:** v9.x or newer, or use `yarn` if preferred
-- **Expo CLI:** Install globally with `npm install -g expo-cli`
+- **Expo CLI:** Install globally with `npm install -g expo-cli` (Expo SDK 54)
 - **Supported Platforms:** iOS, Android, and Web
 
 Ensure you have the correct Node.js version installed. You can check your version with:
@@ -63,6 +63,7 @@ node -v
 - **Tab Scroll Performance:** Optimize tab bar rendering and scrolling for a smoother experience, especially with many categories.
 - **Dynamic Tab Highlighting:** Improve accuracy and responsiveness of the active tab indicator as the user scrolls through sections.
 - **Accessibility:** Enhance accessibility by supporting keyboard navigation and screen readers for tabs and sections.
+- **Optimisation:** Some optimiastion can be done here for better outcome for large scale of data
 - **Customizability:** Allow more flexible customization of tab styles, header heights, and animation parameters via props.
 - **Section Indexing:** Add a quick-jump or index feature for faster navigation in menus with many categories.
 - **Persistent Tab State:** Remember the last selected tab or scroll position when navigating away and back.
