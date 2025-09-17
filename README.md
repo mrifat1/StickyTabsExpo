@@ -46,7 +46,7 @@ A modern restaurant menu app built with Expo, React Native, and TypeScript. This
    Launch an emulator/simulator from the Expo CLI.
    ```
 
-## Notes: Potential Improvements for StickyTabs Component
+## Notes: Potential Improvements for StickyTabs Component and the whole task
 
 - **Tab Scroll Performance:** Optimize tab bar rendering and scrolling for a smoother experience, especially with many categories.
 - **Dynamic Tab Highlighting:** Improve accuracy and responsiveness of the active tab indicator as the user scrolls through sections.
