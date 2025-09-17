@@ -11,10 +11,18 @@ export interface CategoryItem {
     title: string;
     data: CategoryItem[];
   }
+
+  export interface RestaurantSection {
+    restaurantName: string;
+    subtitle: string,
+    rating: string,
+    reviews: string,
+    restaurantItems: CategorySection[]
+  }
   
   export interface StickyTabsProps {
     sections: CategorySection[];
-    renderHeader?: () => React.ReactNode;
+    renderHeader?: (item: RestaurantSection) => React.ReactNode;
     headerHeight?: number;
     tabHeight?: number;
     onItemPress?: (item: CategoryItem) => void;

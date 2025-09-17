@@ -1,4 +1,4 @@
-import { CategorySection } from '@/types';
+import { CategorySection, RestaurantSection } from '@/types';
 
 export const mockRestaurantData: CategorySection[] = [
   {
@@ -179,3 +179,10 @@ export const mockRestaurantData: CategorySection[] = [
     ],
   },
 ];
+export const restaurantDetails: RestaurantSection = {
+  restaurantName: 'Hello Dhaka',
+  subtitle: 'Authentic Foods',
+  rating: '4.8',
+  reviews: '2100',
+  restaurantItems: mockRestaurantData
+}

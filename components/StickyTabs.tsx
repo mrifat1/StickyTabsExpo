@@ -1,3 +1,4 @@
+import { restaurantDetails } from '@/data/mockData';
 import { CategoryItem, CategorySection, StickyTabsProps } from '@/types';
 import React, { useCallback, useRef, useState } from 'react';
 import {
@@ -184,7 +185,7 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
       >
         {renderHeader && (
           <Animated.View style={[styles.headerContainer, { height: animatedHeaderHeight }]}>
-            {renderHeader()}
+            {renderHeader(restaurantDetails)}
           </Animated.View>
         )}
         
