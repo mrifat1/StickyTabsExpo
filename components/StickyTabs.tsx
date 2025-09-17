@@ -30,7 +30,6 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
   
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [sectionLayouts, setSectionLayouts] = useState<{ [key: string]: { y: number; height: number } }>({});
-  const [isSticky, setIsSticky] = useState(false);
 
   const sectionRefs = useRef<{ [key: string]: View | null }>({});
 
@@ -44,13 +43,8 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
 
   const handleScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const scrollPosition = event.nativeEvent.contentOffset.y;
-    
-    const shouldStick = scrollPosition >= headerHeight;
-    if (shouldStick !== isSticky) {
-      setIsSticky(shouldStick);
-    }
-
-    const currentPosition = scrollPosition + tabHeight + (isSticky ? 0 : 0);
+    const remainingHeaderHeight = Math.max(0, headerHeight - scrollPosition);
+    const currentPosition = scrollPosition + tabHeight + remainingHeaderHeight;
     let newActiveIndex = 0;
 
     for (let i = 0; i < sections.length; i++) {
@@ -66,7 +60,7 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
       setActiveTabIndex(newActiveIndex);
       scrollTabToIndex(newActiveIndex);
     }
-  }, [headerHeight, tabHeight, isSticky, sections, sectionLayouts, activeTabIndex]);
+  }, [headerHeight, tabHeight, sections, sectionLayouts, activeTabIndex]);
 
   const scrollTabToIndex = useCallback((index: number) => {
     const tabWidth = 120;
@@ -83,7 +77,7 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
     const layout = sectionLayouts[section.id];
     
     if (layout && mainScrollRef.current) {
-      const targetY = Math.max(0, layout.y - tabHeight - (isSticky ? 0 : 0));
+      const targetY = Math.max(0, layout.y - tabHeight);
       
       mainScrollRef.current.scrollTo({
         y: targetY,
@@ -93,22 +87,12 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
       setActiveTabIndex(index);
       scrollTabToIndex(index);
     }
-  }, [sections, sectionLayouts, tabHeight, isSticky]);
+  }, [sections, sectionLayouts, tabHeight]);
 
   const renderTabBar = () => (
     <Animated.View
       style={[
         styles.tabContainer,
-        isSticky && styles.stickyTabContainer,
-        // {
-        //   transform: [{
-        //     translateY: scrollY.interpolate({
-        //       inputRange: [0, headerHeight],
-        //       outputRange: [0, -headerHeight],
-        //       extrapolate: 'clamp',
-        //     })
-        //   }]
-        // }
       ]}
     >
       <ScrollView
@@ -177,6 +161,12 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
     </View>
   );
 
+  const animatedHeaderHeight = scrollY.interpolate({
+    inputRange: [0, headerHeight],
+    outputRange: [headerHeight, 0],
+    extrapolate: 'clamp',
+  });
+
   return (
     <View style={styles.container}>
       <Animated.ScrollView
@@ -190,12 +180,12 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
         )}
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
-        stickyHeaderIndices={isSticky ? [1] : undefined}
+        stickyHeaderIndices={[1]}
       >
         {renderHeader && (
-          <View style={[styles.headerContainer, { height: headerHeight }]}>
+          <Animated.View style={[styles.headerContainer, { height: animatedHeaderHeight }]}>
             {renderHeader()}
-          </View>
+          </Animated.View>
         )}
         
         {renderTabBar()}
@@ -226,6 +216,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     zIndex: 1000,
+    paddingVertical: 10,
   },
   stickyTabContainer: {
     position: 'absolute',
