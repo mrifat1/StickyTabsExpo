@@ -28,6 +28,7 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
   const scrollY = useRef(new Animated.Value(0)).current;
   const mainScrollRef = useRef<ScrollView>(null);
   const tabScrollRef = useRef<ScrollView>(null);
+  const isTabPressRef = useRef(false);
   
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [sectionLayouts, setSectionLayouts] = useState<{ [key: string]: { y: number; height: number } }>({});
@@ -57,7 +58,7 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
       }
     }
 
-    if (newActiveIndex !== activeTabIndex) {
+    if (!isTabPressRef.current && newActiveIndex !== activeTabIndex) {
       setActiveTabIndex(newActiveIndex);
       scrollTabToIndex(newActiveIndex);
     }
@@ -74,6 +75,7 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
   }, []);
 
   const handleTabPress = useCallback((index: number) => {
+    isTabPressRef.current = true;
     const section = sections[index];
     const layout = sectionLayouts[section.id];
     
@@ -87,6 +89,10 @@ const StickyTabs: React.FC<StickyTabsProps> = ({
       
       setActiveTabIndex(index);
       scrollTabToIndex(index);
+
+      setTimeout(() => {
+        isTabPressRef.current = false;
+      }, 500);
     }
   }, [sections, sectionLayouts, tabHeight]);
 
