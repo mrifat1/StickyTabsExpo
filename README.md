@@ -1,51 +1,49 @@
-# Welcome to your Expo app 👋
+# StickyTabExpo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern restaurant menu app built with Expo, React Native, and TypeScript. This project demonstrates a sticky tab navigation UI for browsing menu categories, with smooth scrolling and animated headers.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Sticky Tabs:** Category tabs remain visible as you scroll through menu sections.
+- **Animated Header:** Parallax-style header image that collapses on scroll.
+- **Category Sections:** Menu items grouped by category, each with images, descriptions, and prices.
+- **Responsive UI:** Works on iOS, Android and web
+
+## What Was Done
+
+- Implemented a [`StickyTabs`](components/StickyTabs.tsx) component for sticky tab navigation and smooth section scrolling.
+- Created mock restaurant menu data in [`mockData.ts`](data/mockData.ts).
+- Built a sample home screen ([`index.tsx`](<app/(tabs)/index.tsx>)) using the sticky tabs and animated header.
+- Added custom UI components for themed text, views, icons, and haptic tab buttons.
+- Set up Expo Router for navigation and theming.
+- Ensured cross-platform compatibility and responsive design.
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```sh
+   git clone <your-repo-url>
+   cd StickyTabExpo
+   ```
+
+2. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+4. Open the app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
+   Use the Expo Go app on your device to scan the QR code, or
+   Launch an emulator/simulator from the Expo CLI.
+   ```
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 # StickyTabsExpo

@@ -1,98 +1,91 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import StickyTabs from '@/components/StickyTabs';
+import { mockRestaurantData } from '@/data/mockData';
+import { CategoryItem } from '@/types';
+import React from 'react';
+import { Alert, Image, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+  const handleItemPress = (item: CategoryItem) => {
+    Alert.alert(
+      'Item Selected',
+      `${item.name}\n\nPrice: $${item.price.toFixed(2)}\n\n${item.description || 'No description available'}`,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { text: 'Add to Cart', style: 'default' },
+      ]
+    );
+  };
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+  const renderHeader = () => (
+    
+      <View style={styles.headerOverlay}>
+        <Image 
+          source={{ uri: 'https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=800' }}
+          style={styles.headerImage}
+        />
+          <View style={styles.headerContent}>
+            <Text style={styles.restaurantName}>Test restaurant</Text>
+            <Text style={styles.restaurantTagline}>Authentic Foods</Text>
+            <View style={styles.headerInfo}>
+              <Text style={styles.headerInfoText}>4.8 (2,100+ reviews)</Text>
+              <Text style={styles.headerInfoText}>25-35 min delivery</Text>
+            </View>
+          </View>
+      </View>
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <StickyTabs
+        sections={mockRestaurantData}
+        renderHeader={renderHeader}
+        headerHeight={250}
+        tabHeight={60}
+        onItemPress={handleItemPress}
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  headerOverlay: {
+    flex: 1,
+    position: 'relative',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+  headerImage: {
+    width: '100%',
+    height: '100%',
     position: 'absolute',
+  },
+  headerContent: {
+    padding: 20,
+    paddingTop: 60,
+  },
+  restaurantName: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 6,
+    // textShadowColor: 'rgba(0,0,0,0.5)',
+    // textShadowOffset: { width: 1, height: 1 },
+    // textShadowRadius: 3,
+  },
+  restaurantTagline: {
+    fontSize: 16,
+    color: '#fff',
+    marginBottom: 12,
+  },
+  headerInfo: {
+    gap: 4,
+  },
+  headerInfoText: {
+    fontSize: 14,
+    color: '#fff',
+    fontWeight: '500',
   },
 });
